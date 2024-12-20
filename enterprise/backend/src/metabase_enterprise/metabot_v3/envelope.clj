@@ -104,6 +104,23 @@
   [e msg]
   (update e :dummy-history conj msg))
 
+(defn- update-queries
+  [e queries]
+  (update e :query-id->query (fnil into {}) (map (fn [query] [(:query-id query) query]) queries)))
+
+(defn add-dummy-tool-response
+  "Adds the dummy messages to the dummy history, updates context, and the query store, if necessary."
+  [e tool-call-id {:keys [output context reactions queries] :as res}]
+  (when (or
+         (some? context)
+         (some? reactions))
+    (throw (ex-info "dummy tool calls cannot result in reactions or context changes" res)))
+  (-> e
+      (add-dummy-message {:role :tool
+                          :tool-call-id tool-call-id
+                          :content output})
+      (update-queries queries)))
+
 (defn update-context
   "Given a new context, set it in the envelope."
   [e context]
@@ -117,13 +134,14 @@
 
 (defn add-tool-response
   "Given an output string and new context, adds them to the envelope."
-  [e tool-call-id {:keys [output context reactions]}]
+  [e tool-call-id {:keys [output context reactions queries]}]
   (-> e
       (add-message {:role :tool
                     :tool-call-id tool-call-id
                     :content output})
       (update-context context)
-      (update-reactions reactions)))
+      (update-reactions reactions)
+      (update-queries queries)))
 
 (defn is-tool-call?
   "Is this message a tool call?"
@@ -139,15 +157,7 @@
 (defn find-query
   "Given an envelope and a query-id, find the query in the history."
   [e query-id]
-  (->> (full-history e {:stringify-content? false})
-       (filter is-tool-call-response?)
-       (keep :content)
-
-       (filter #(contains? #{:query "query"} (:type %)))
-       (filter #(or (= (:query-id %) query-id)
-                    (= (:query_id %) query-id)))
-       first
-       :query))
+  (:query (get (:query-id->query e) query-id)))
 
 (defn requires-tool-invocation?
   "Does this envelope require tool call invocation?"

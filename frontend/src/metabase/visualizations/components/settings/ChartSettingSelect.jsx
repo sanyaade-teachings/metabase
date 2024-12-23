@@ -19,7 +19,6 @@ export const ChartSettingSelect = ({
   footer,
   ...selectProps
 }) => {
-  // TODO: Come up with a sensible default for both sides of this so we don't have two branches
   const disabled =
     options.length === 0 ||
     (options.length === 1 && options[0].value === value);

@@ -1,5 +1,6 @@
 import {
   type CSSObject,
+  type ContextStylesParams,
   type MantineSize,
   type MantineTheme,
   type MantineThemeOverride,
@@ -24,20 +25,25 @@ export const getSelectOverrides = (): MantineThemeOverride["components"] => ({
         color: "text-dark",
       },
     }),
-    styles: (theme, _, { size = "md" }) => ({
-      ...getSelectInputOverrides(theme),
-      ...getSelectItemsOverrides(theme, size),
-      // For epic (metabase#38699)
-      dropdown: {
-        background: "var(--mb-color-background)",
-        borderColor: "var(--mb-color-border)",
-        ">div": {
-          maxHeight: "none !important",
-        },
-        padding: 0,
-        overflow: "auto",
-      },
-    }),
+    styles: getSelectStylesOverrides,
+  },
+});
+export const getSelectStylesOverrides = (
+  theme: MantineTheme,
+  _params: any,
+  { size = "md" }: ContextStylesParams,
+) => ({
+  ...getSelectInputOverrides(theme),
+  ...getSelectItemsOverrides(theme, size),
+  // For epic (metabase#38699)
+  dropdown: {
+    background: "var(--mb-color-background)",
+    borderColor: "var(--mb-color-border)",
+    ">div": {
+      maxHeight: "none !important",
+    },
+    padding: 0,
+    overflow: "auto",
   },
 });
 

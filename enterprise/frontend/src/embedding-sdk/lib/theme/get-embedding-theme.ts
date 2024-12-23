@@ -32,7 +32,6 @@ export function getEmbeddingThemeOverride(
     DEFAULT_EMBEDDED_COMPONENT_THEME,
     theme.components,
   );
-
   const override: MantineThemeOverride = {
     // font is coming from either redux, where we store theme.fontFamily,
     // or from the instance settings, we're adding a default to be used while loading the settings

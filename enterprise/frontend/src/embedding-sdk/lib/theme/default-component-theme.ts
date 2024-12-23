@@ -8,6 +8,7 @@ import {
 import type { DeepPartial } from "embedding-sdk/types/utils";
 import { OVERLAY_Z_INDEX } from "metabase/css/core/overlays/constants";
 import type { MantineThemeOverride } from "metabase/ui";
+import { getSelectStylesOverrides } from "metabase/ui/components/inputs/Select/Select.styled";
 
 export const DEFAULT_SDK_FONT_SIZE = 14;
 
@@ -165,6 +166,18 @@ export function getEmbeddingComponentOverrides(): MantineThemeOverride["componen
           target: `#${EMBEDDING_SDK_PORTAL_ROOT_ELEMENT_ID}`,
         },
       }, // satisfies Partial<PopoverProps>,
+    },
+    // To counteract the "maxHeight: none !important" in the core app, which is messing up the Select popover's
+    // ability to not overflow off the page
+    Select: {
+      styles: (theme, _params, context) => ({
+        ...getSelectStylesOverrides(theme, _params, context),
+        dropdown: {
+          ">div": {
+            maxHeight: undefined,
+          },
+        },
+      }),
     },
   };
 }

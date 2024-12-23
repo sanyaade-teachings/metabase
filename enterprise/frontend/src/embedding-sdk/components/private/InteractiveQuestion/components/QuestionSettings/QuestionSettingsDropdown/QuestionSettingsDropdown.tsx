@@ -7,7 +7,7 @@ import { ActionIcon, Icon, Popover } from "metabase/ui";
 export const QuestionSettingsDropdown = ({
   height,
 }: {
-  height: CSSProperties["height"];
+  height?: CSSProperties["height"];
 }) => (
   <Popover position="bottom-end">
     <Popover.Target>

@@ -9,7 +9,7 @@
    [metabase.models.database :refer [Database]]
    [metabase.models.setting :refer [defsetting]]
    [metabase.plugins :as plugins]
-   [metabase.public-settings.premium-features :refer [defenterprise]]
+   [metabase.premium-features.core :refer [defenterprise]]
    [metabase.sync.util :as sync-util]
    [metabase.util :as u]
    [metabase.util.files :as u.files]

@@ -4,7 +4,7 @@
    [metabase.db :as mdb]
    [metabase.db.query :as mdb.query]
    [metabase.models.query-cache :refer [QueryCache]]
-   [metabase.public-settings.premium-features :refer [defenterprise]]
+   [metabase.premium-features.core :refer [defenterprise]]
    [metabase.query-processor.middleware.cache-backend.interface :as i]
    [metabase.util.date-2 :as u.date]
    [metabase.util.log :as log]

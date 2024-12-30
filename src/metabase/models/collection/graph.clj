@@ -14,7 +14,7 @@
     :as perms-group
     :refer [PermissionsGroup]]
    [metabase.permissions.util :as perms.u]
-   [metabase.public-settings.premium-features :refer [defenterprise]]
+   [metabase.premium-features.core :refer [defenterprise]]
    [metabase.util :as u]
    [metabase.util.honey-sql-2 :as h2x]
    [metabase.util.malli :as mu]

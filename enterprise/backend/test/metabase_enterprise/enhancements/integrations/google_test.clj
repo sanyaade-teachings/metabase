@@ -3,7 +3,7 @@
    [clojure.test :refer :all]
    [metabase.integrations.google :as google]
    [metabase.models.user :refer [User]]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.test :as mt]))
 
 (deftest google-auth-create-new-user!-test

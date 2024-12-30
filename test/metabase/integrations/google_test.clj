@@ -6,7 +6,7 @@
    [metabase.integrations.google.interface :as google.i]
    [metabase.models.interface :as mi]
    [metabase.models.user :refer [User]]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.test :as mt]
    [metabase.test.fixtures :as fixtures]
    [toucan2.core :as t2]

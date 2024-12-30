@@ -16,7 +16,7 @@
    [metabase.models.field-values :as field-values :refer [FieldValues]]
    [metabase.models.interface :as mi]
    [metabase.models.table :as table :refer [Table]]
-   [metabase.public-settings.premium-features :refer [defenterprise]]
+   [metabase.premium-features.core :refer [defenterprise]]
    [metabase.related :as related]
    [metabase.request.core :as request]
    [metabase.sync :as sync]

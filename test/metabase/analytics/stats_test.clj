@@ -15,7 +15,7 @@
    [metabase.models.pulse-card :refer [PulseCard]]
    [metabase.models.pulse-channel :refer [PulseChannel]]
    [metabase.models.query-execution :refer [QueryExecution]]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.query-processor.util :as qp.util]
    [metabase.test :as mt]
    [metabase.test.fixtures :as fixtures]

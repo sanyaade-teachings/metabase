@@ -15,7 +15,7 @@
    [metabase.lib.test-util :as lib.tu]
    [metabase.models.database :refer [Database]]
    [metabase.models.table :refer [Table]]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.query-processor :as qp]
    [metabase.query-processor-test.order-by-test :as qp-test.order-by-test]
    [metabase.query-processor.preprocess :as qp.preprocess]

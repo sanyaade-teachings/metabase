@@ -4,7 +4,7 @@
    [metabase.api.common :refer [*current-user-id* *is-superuser?*]]
    [metabase.models.permissions-group-membership
     :refer [PermissionsGroupMembership]]
-   [metabase.public-settings.premium-features :refer [defenterprise]]
+   [metabase.premium-features.core :refer [defenterprise]]
    [metabase.util.i18n :refer [tru]]
    [toucan2.core :as t2]))
 

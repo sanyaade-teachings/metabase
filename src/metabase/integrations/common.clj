@@ -9,7 +9,7 @@
     :refer [PermissionsGroupMembership]]
    [metabase.models.setting.multi-setting :refer [define-multi-setting
                                                   define-multi-setting-impl]]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.util :as u]
    [metabase.util.i18n :refer [deferred-tru]]
    [metabase.util.log :as log]

@@ -11,7 +11,7 @@
    [metabase.models.permissions-group-membership :refer [PermissionsGroupMembership]]
    [metabase.models.user :refer [User]]
    [metabase.public-settings :as public-settings]
-   [metabase.public-settings.premium-features :as premium-features]
+   [metabase.premium-features.core :as premium-features]
    [metabase.request.core :as request]
    [metabase.test :as mt]
    [metabase.test.fixtures :as fixtures]
